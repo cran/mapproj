@@ -7,7 +7,7 @@
   Converts latitude and longitude into projected coordinates.
 }
 \usage{
-mapproject(x, y, projection="mercator", parameters=NULL, orientation=NULL)
+mapproject(x, y, projection="", parameters=NULL, orientation=NULL)
 }
 \arguments{
 \item{x,y}{

@@ -39,7 +39,7 @@ function(x, y, projection = "", parameters = NULL, orientation = NULL)
               as.double(parameters),
               as.integer(length(parameters)),
               as.double(orientation),
-              error = character(1))$error
+              error = character(1),package="mapproj")$error
   if(error != "")
     stop(error)
   assign(".Last.projection", list(projection = projection,
@@ -52,7 +52,7 @@ function(x, y, projection = "", parameters = NULL, orientation = NULL)
      as.integer(length(x)),
      range = double(4),
      error = integer(1),
-     NAOK = TRUE)[c("x", "y", "range", "error")]
+     NAOK = TRUE,PACKAGE="mapproj")[c("x", "y", "range", "error")]
 }
 
 map.grid <- function(lim,nx=9,ny=9,labels=TRUE,pretty=TRUE,
