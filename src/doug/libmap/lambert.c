@@ -43,18 +43,16 @@ lambert(double par0, double par1)
 		return(mercator());
 	if(fabs(par1)>89.5) {
 		if(par0>89.5)
-			return(map_perspective(-1.));
+			return(perspective(-1.));
 		else if(par0<-89.5)
 			return 0;	/* S pole stereographic */
 		else
 			return 0;
 	}
 	if(fabs(par1-par0)<.1)
-	  /* series expansion about stdp1.s = stdp0.s */
-	  /* thanks to Alex Deckmyn for pointing this out */
-	  k = stdp0.s + 0.5*(stdp1.s - stdp0.s);
-	else 
-	  k = 2*log(stdp1.c/stdp0.c)/log(
-		(1+stdp0.s)*(1-stdp1.s)/((1-stdp0.s)*(1+stdp1.s)));
+		k = stdp0.s;
+	else
+		k = 2*log(stdp1.c/stdp0.c)/log(
+		  (1+stdp0.s)*(1-stdp1.s)/((1-stdp0.s)*(1+stdp1.s)));
 	return(Xlambert);
 }

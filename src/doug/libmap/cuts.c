@@ -35,13 +35,10 @@ ckcut(struct place *g1, struct place *g2, double lon)
 	return 0;
 }
 
-/* minka: from map.c */
 double
-reduce(double lon)
+reduce(double x)
 {
-        if(lon>PI)
-                lon -= 2*PI;
-        else if(lon<-PI)
-                lon += 2*PI;
-        return(lon);
+	x=x;
+	abort();
+	return 0;
 }

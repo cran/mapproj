@@ -1,0 +1,151 @@
+.so tmac.anx
+.TH MAP 3 
+.SH NAME
+orient, normalize \- map projections
+.SH SYNOPSIS
+.B orient(double lat, double lon, double rot)
+.PP
+.B normalize(struct place *p)
+.SH DESCRIPTION
+.PP
+The functions
+.I orient
+and
+.I normalize
+plus a collection of map projection generators
+are loaded by
+option
+.BR -lmap 
+of
+.IR ld (1).
+Most of them
+calculate maps for a spherical earth.
+Each map projection is available in one standard
+form, into which data must be normalized
+for transverse
+or nonpolar projections.
+.PP
+Each standard projection is displayed with the Prime
+Meridian (longitude 0) being a straight vertical line, along which North
+is up.
+The orientation of nonstandard projections is specified by
+.I orient.
+Imagine a transparent gridded sphere around the globe.
+First turn the overlay about the North Pole
+so that the Prime Meridian (longitude 0)
+of the overlay coincides with meridian
+.I lon
+on the globe.
+Then tilt the North Pole of the
+overlay along its Prime Meridian to latitude
+.I lat
+on the globe.
+Finally again turn the
+overlay about its `North Pole' so
+that its Prime Meridian coincides with the previous position
+of (the overlay's) meridian
+.I rot.
+Project the desired map in
+the standard form appropriate to the overlay, but presenting
+information from the underlying globe.
+It is not useful to use
+.I orient
+without using
+.IR normalize .
+.PP
+.I Normalize
+converts latitude-longitude coordinates on the globe
+to coordinates on the overlaid grid.
+The coordinates and their sines and cosines
+are input to
+.I normalize
+in a
+.B place
+structure.
+Transformed coordinates and their sines and cosines
+are returned in the same structure.
+.PP
+.EX
+.nr xx \w'12345678'
+.ta \n(xxu +\n(xxu +\n(xxu +\n(xxu +\n(xxu +\n(xxu
+	struct place {
+		double radianlat, sinlat, coslat;
+		double radianlon, sinlon, coslon;
+	};
+.EE
+.PP
+The projection generators
+return a pointer to a function that converts normalized coordinates
+to 
+.I x-y
+coordinates for the desired map, or
+0 if the required projection
+is not available.
+The returned function is exemplified by
+.I proj 
+in this example:
+.PP
+.EX
+.ta \n(xxu +\n(xxu +\n(xxu +\n(xxu +\n(xxu +\n(xxu
+	struct place pt;
+	int (*proj)() = mercator();
+	double x, y;
+.EE
+.PP
+.EX
+	orient(45.0, 30.0, 180.0);	/* set coordinate rotation */
+.EE
+.PP
+.EX
+	. . .				/* fill in the pt structure */
+	normalize(&pt);			/* rotate coordinates */
+	if((*proj)(&pt, &x, &y) > 0)	/* project onto x,y plane */
+		plot(x, y);
+.EE
+.PP
+The projection function
+.B (*proj)()
+returns 1 for a good point,
+0 for a point on a wrong
+sheet (e.g. the back of the world in a perspective
+projection), and \-1 for a point that is deemed
+unplottable (e.g. points near the poles on a Mercator projection).
+.PP
+Scaling may be determined from the
+.I x-y
+coordinates of
+selected points.
+Latitudes and longitudes are measured in degrees for
+ease of specification for
+.I orient 
+and the projection generators
+but in radians for ease of calculation 
+for
+.I normalize
+and
+.I proj.
+In either case
+latitude is measured positive north of the equator,
+and longitude positive west of Greenwich.
+Radian longitude should be limited to the range
+.if t .I \-\(*p\(<=lon<\(*p.
+.if n .I -pi <= lon < pi.
+.PP
+Projection generators have the same names and the same
+arguments as the projections named in
+.IR map (1).
+All arguments are
+.BR double .
+.SH "SEE ALSO
+.IR map (1), 
+.IR map (5), 
+.SH BUGS
+Only one projection and one orientation can be active at a time.
+.br
+The west-longitude-positive convention
+betrays Yankee chauvinism.
+.SH COPYRIGHT
+.PP
+Copyright (C) 1998, Lucent Technologies
+.br
+All rights reserved

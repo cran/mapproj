@@ -1,0 +1,158 @@
+# /************************************************************
+# 
+# Copyright (C) 1998, Lucent Technologies
+# All rights reserved
+# 
+# ************************************************************/
+# 
+MATERIALS
+
+The source directory has three subdirectories: 
+	doc		manual pages, maintenance record
+	libmap		source for projection subroutines
+	mapdata		World Data Bank I, etc.
+
+Manuals in doc are included in two forms.
+	input for troff -man:
+		map.1, map.3, map.5, route.1, mapfile.1
+	PostScript:
+		map.1.ps, ...
+
+A change history is in doc/maint_record.
+
+The source is written in ANSI C.
+
+QUICK TEST
+
+Check CFLAGS and CC in the Makefile and make them reflect your
+system's conventions.
+
+To see whether you can compile and compute, try this test, which
+makes "map", runs it on a small example, and checks the output:
+
+	make quicktest
+
+DISPLAY PROGRAMS
+
+Map produces output usable by a display program (not included).
+Unfortunately there is no universal Unix standard for plotting.
+
+Here are ways to compile for some display programs.
+"make quicktest" does a default make; undo that with
+"make clean" before doing a nondefault make.
+
+	make		default, same as make PLOT=plotPS
+
+	make PLOT=plotPS Output is PostScript.
+			Maps are drawn in a 6.5-inch square centered
+			1 inch from the top of an 8.5x11 page.
+			To change this convention, edit the PostScript
+			or plotPS.c.
+			One suitable plotting filter is ghostview,
+			sometimes known as gv(1).
+
+	make PLOT=plotV	Output for Sys V or SunOS plotting filters
+			described under plot(1) or tplot(1).
+
+	make PLOT=plot0	For v10 research system plot(1), not
+			compatible with System V.
+
+	As map uses only simple plotting features, it is usually
+	easy to interface to other plotting packages. See
+	iplot.h for details.
+
+You can test map in the current directory in the following way,
+assuming a Bourne-derived shell (sh, ksh, bash, ash, ...) and
+the PostScript display program gv.
+For further tests, replace mercator by any argument list
+from EXAMPLES on the man page map(1).
+
+	MAPDIR=./mapdata MAPPROG=./map map.sh mercator >junk.ps
+	gv junk.ps
+
+INSTALLATION
+
+For real installation, do
+
+	make install
+
+This puts the map shell script in /usr/bin and everything else in
+directory /usr/lib/map.  If you want to put things elsewhere, adjust
+MAPHOME in map.sh and the local settings in Makefile.
+
+map.sh will become the command "map".  Assuming it's in the
+shell search path after installation, and again assuming PostScript
+output, a map can be made and displayed thus:
+
+	map mercator >junk.ps; gv junk.ps
+
+TROUBLESHOOTING
+
+Lost output
+	If you lose the last bit of a map, read BUGS in map(1).
+
+Option problems
+	Option -f needs World Data Bank II, which is not in
+	this distribution, but can be fetched separately from
+	the same place.
+
+Library problems
+	At least one version of tplot has been seen to garble
+	the output.  In this case the trouble went away by
+	compiling map with -l4014 instead of -lplot; see plot(3).
+
+ROUTE PROGRAM
+
+An auxiliary "route" program computes the great circle route
+between two points, and can output either
+
+	1. An orientation (option -o) that transforms the great
+	circle to the equator, together with the coordinates
+	of the transformed endpoints.   A strip map extending
+	lat degrees on either side of the great circle between
+	the endpoints -lon and lon may be created thus:
+		map mercator -o o1 o2 o3 -w -lat lat -lon lon
+	Quantities obtained from "route" are the orientation
+	arguments o1, o2, o3.
+	
+	2. Coordinates for a track along the great circle,
+	suitable for use with options -t and -u.
+
+The program can be made with
+	
+	make route
+
+MAPFILE PROGRAMS
+
+Programs for converting between ASCII and binary map data
+formats are described in the man page mapfile(1).  They
+can be made with
+
+	make mapfile
+
+
+REFERENCES
+
+Most standard texts on cartography discuss the major 
+projections and their uses.  A short introduction, with
+24 sample maps drawn by the "map" program itself and the
+commands to draw them, is
+
+	Projections: Mapmakers' Answers to the Riddle of
+	Presenting a Round Earth on Flat Paper
+	by M. Douglas McIlroy
+	Computing Science Technical Report 140, (1987)
+
+	available from
+	Computing Science Reports, Room 2C447
+	Bell Labs
+	600 Mountain Avenue
+	Murray Hill, NJ 07974
+
+	[In this report, option -s is used in an obsolete way.
+	It should be replaced by -s2, with -s1 added
+	to the previous command.]
+
+Doug McIlroy
+doug@cs.dartmouth.edu
+

@@ -22,9 +22,8 @@ north of the equator.
 }
 \item{projection}{
 optional character string that names a map projection to
-use.
-See below for a description of this and the
-next two arguments.
+use.  If the string is \code{""} then the previous projection is used,
+with parameters modified by the next two arguments.
 }
 \item{parameters}{
 optional numeric vector of parameters for use with the
@@ -37,10 +36,15 @@ must be given in the \code{parameters} argument.
 \item{orientation}{
   An optional vector \code{c(latitude,longitude,rotation)} which describes
   where the "North Pole" should be when computing the projection.
-  This is mainly used for specifying the point of tangency for a planar
-  projection; you should not use it for cylindrical or conic
-  projections.
-  The third value is a clockwise rotation (in degrees).
+  Normally this is \code{c(90,0)}, which is appropriate for 
+  cylindrical and conic projections.  For a planar projection, you should
+  set it to the desired point of tangency.
+  The third value is a clockwise rotation (in degrees), which defaults
+  to the midrange of the longitude coordinates in the map.
+  This means that two maps plotted with their own default orientation
+  may not line up.  To avoid this, you should not specify a projection
+  twice but rather default to the previous projection using
+  \code{projection=""}.  See the examples.
 }}
 \value{
 list with components
@@ -202,20 +206,23 @@ not make sense for tilted orientations.
 }
 } % end details
 \references{
-Richard A. Becker, and Allan R. Wilks,
-"Maps in S",
-\emph{AT\&T Bell Laboratories Statistics Research Report, 1991.}
-\url{http://www.research.att.com/areas/stat/doc/93.2.ps}
+  Tom Minka, An overview of map projections.
+  \url{http://www.stat.cmu.edu/~minka/courses/36-315/handout/handout17.pdf}
+  
+  Richard A. Becker, and Allan R. Wilks,
+  "Maps in S",
+  \emph{AT\&T Bell Laboratories Statistics Research Report, 1991.}
+  \url{http://www.research.att.com/areas/stat/doc/93.2.ps}
+  
+  M. D. McIlroy,
+  documentation for
+  from
+  \emph{Tenth Edition UNIX Manual, Volume 1,}
+  Saunders College Publishing, 1990.
 
-M. D. McIlroy,
-documentation for
-from
-\emph{Tenth Edition UNIX Manual, Volume 1,}
-Saunders College Publishing, 1990.
-
-M. D. McIlroy,  Source code for maps and map projections.
-\url{http://www.cs.dartmouth.edu/~doug/source.html}
-%\url{http://cm.bell-labs.com/cs/who/doug/map.tar.gz}
+  M. D. McIlroy,  Source code for maps and map projections.
+  \url{http://www.cs.dartmouth.edu/~doug/source.html}
+  %\url{http://cm.bell-labs.com/cs/who/doug/map.tar.gz}
 }
 \examples{
 library(maps)
@@ -223,6 +230,10 @@ library(maps)
 map("state",proj='bonne', param=45)
 data(state)
 text(mapproject(state.center), state.abb)
+
+# this does not work because the default orientations are different:
+map("state",proj='bonne', param=45)
+text(mapproject(state.center,proj='bonne',param=45),state.abb)
 
 map("state",proj="albers",par=c(30,40))
 map("state",par=c(20,50)) # another Albers projection

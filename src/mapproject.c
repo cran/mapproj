@@ -67,7 +67,7 @@ struct index {
 void setproj(name, par, n, o, error)
      char **name, **error;
      double par[], o[];
-     long *n;
+     int *n;
 {
   struct index *i, *theproj = 0;
   static char errbuf[200];
@@ -129,7 +129,7 @@ static int project(lon, lat, x, y)
 
 void doproj(lon, lat, n, range, error)
      double lon[], lat[], range[];
-     long *n, *error;
+     int *n, *error;
 {
   int i, ok;
   double x, y;

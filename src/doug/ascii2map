@@ -1,0 +1,25 @@
+#!/bin/sh
+
+# convert an ascii file on standard input containing geographic
+# line features (shorelines, rivers, political boundaries, etc) 
+# into map(5) form usable by map(1)
+#
+# usage: ascii2map [-f] ofile
+#
+# input: sequence of segments, each made of
+#	integer count (n)
+#	n coordinate pairs, decimal degrees (lat N and lon W)
+#
+# two output files:
+#	ofile		the binary data
+#	ofile.x		ascii index to 10-degree patches in ofile
+#
+# option -f produces finer resolution 
+
+if test ${1}x = "-fx"
+then F=-f; shift
+else F=
+fi
+
+./ascii2map1 $F | sort -n -k1 -k2 -k3 | ./ascii2map2 $F >$1
+./ascii2map3 <$1 >$1.x
