@@ -69,7 +69,6 @@ map.grid <- function(lim,nx=9,ny=9,labels=TRUE,pretty=TRUE,
     x
   }
   auto.format <- function(x) {
-    # from minka library
     # use the minimal number of digits to make x's unique
     # similar to abbrev
     for(digits in 0:6) {

@@ -41,11 +41,13 @@ lambert(double par0, double par1)
 	deg2rad(par1, &stdp1);
 	if(fabs(par1+par0)<.1) 
 		return(mercator());
-	if(fabs(par1-par0)<.1)
-		return(map_perspective(-1.));
 	if(fabs(par0)>89.5||fabs(par1)>89.5)
 		return(0);
-	k = 2*log(stdp1.c/stdp0.c)/log(
+	if(fabs(par1-par0)<.1)
+	  /* series expansion about stdp1.s = stdp0.s */
+	  k = stdp0.s + 0.5*(stdp1.s - stdp0.s);
+	else 
+	  k = 2*log(stdp1.c/stdp0.c)/log(
 		(1+stdp0.s)*(1-stdp1.s)/((1-stdp0.s)*(1+stdp1.s)));
 	return(Xlambert);
 }

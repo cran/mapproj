@@ -35,9 +35,12 @@ If a projection does require additional parameters, these
 must be given in the \code{parameters} argument.
 }
 \item{orientation}{
-    a vector \code{c(latitude,longitude,rotation)} describing where the 
-    map should be centered and a clockwise rotation (in degrees) 
-    about this center.
+  An optional vector \code{c(latitude,longitude,rotation)} which describes
+  where the "North Pole" should be when computing the projection.
+  This is mainly used for specifying the point of tangency for a planar
+  projection; you should not use it for cylindrical or conic
+  projections.
+  The third value is a clockwise rotation (in degrees).
 }}
 \value{
 list with components
