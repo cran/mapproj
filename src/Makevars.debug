@@ -1,0 +1,1 @@
+PKG_CFLAGS = -Wall -pedantic -D__USE_GNU -D__USE_ISOC99

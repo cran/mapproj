@@ -34,7 +34,7 @@ map.grid(lim,nx=9,ny=9,labels=TRUE,pretty=TRUE,cex,col,lty,font,...)
   These lines will appear curved under most projections, and give an idea of
   how the projection works.
 }
-\seealso{\code{\link{map}}}
+\seealso{\code{\link[maps]{map}}}
 \examples{
 library(maps)
 m <- map("usa",plot=FALSE)

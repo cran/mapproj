@@ -55,8 +55,9 @@ function(x, y, projection = "", parameters = NULL, orientation = NULL)
      NAOK = TRUE)[c("x", "y", "range", "error")]
 }
 
-map.grid <- function(lim=.map.range,nx=9,ny=9,labels=TRUE,pretty=TRUE,
+map.grid <- function(lim,nx=9,ny=9,labels=TRUE,pretty=TRUE,
                      cex=1,col=4,lty=2,font=2,...) {
+  # uses map.wrap from maps library
   pretty.range <- function(lim,...) {
     # like pretty but ensures that the range is identical:
     # range(pretty.range(x)) == range(x)
@@ -77,6 +78,8 @@ map.grid <- function(lim=.map.range,nx=9,ny=9,labels=TRUE,pretty=TRUE,
     }
     s
   }
+  # by default, use limits of last map
+  if(missing(lim)) lim = .map.range
   if(is.list(lim)) {
     # first argument is a map
     lim <- lim$range

@@ -7,7 +7,7 @@
   Converts latitude and longitude into projected coordinates.
 }
 \usage{
-mapproject(x, y, projection="mercator", parameters=NULL, orientation=c(90,0,m))
+mapproject(x, y, projection="mercator", parameters=NULL, orientation=NULL)
 }
 \arguments{
 \item{x,y}{
@@ -35,9 +35,9 @@ If a projection does require additional parameters, these
 must be given in the \code{parameters} argument.
 }
 \item{orientation}{
-optional; up to three numbers specifying the orientation of
-non-standard projections.
-Default is \code{c(90,0,m)}, where \code{m} is the middle of the longitude range.
+    a vector \code{c(latitude,longitude,rotation)} describing where the 
+    map should be centered and a clockwise rotation (in degrees) 
+    about this center.
 }}
 \value{
 list with components
@@ -223,5 +223,8 @@ text(mapproject(state.center), state.abb)
 
 map("state",proj="albers",par=c(30,40))
 map("state",par=c(20,50)) # another Albers projection
+
+map("world",proj="gnomonic",orient=c(0,-100,0)) # example of orient
+# see map.grid for more examples
 }
 \keyword{dplot}
