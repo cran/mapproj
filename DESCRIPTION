@@ -1,6 +1,6 @@
 Package: mapproj
 Title: Map Projections
-Version: 1.1-3
+Version: 1.1-4
 Date: 2004-03-02
 Author: Doug McIlroy.  Packaged for R by Ray Brownrigg and Thomas P Minka.
 Description: Converts latitude/longitude into projected coordinates.

@@ -39,7 +39,7 @@ function(x, y, projection = "", parameters = NULL, orientation = NULL)
               as.double(parameters),
               as.integer(length(parameters)),
               as.double(orientation),
-              error = character(1),package="mapproj")$error
+              error = character(1),PACKAGE="mapproj")$error
   if(error != "")
     stop(error)
   assign(".Last.projection", list(projection = projection,
