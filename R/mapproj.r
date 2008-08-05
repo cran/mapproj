@@ -3,7 +3,9 @@ function(x, y, projection = "", parameters = NULL, orientation = NULL)
 {
   # minka: cleaned up handling of defaults
   r <- NULL
-  if(!is.null(x$x)) {
+  # LY: change test for list so that x$x format not applied to vector
+  #if(!is.null(x$x)) {
+  if (is.list(x)) {
     r <- x$range[1:2]
     y <- x$y
     x <- x$x
