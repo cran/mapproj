@@ -1,10 +1,5 @@
-/************************************************************
-
-Copyright (C) 1998, Lucent Technologies
-All rights reserved
-
-************************************************************/
-
+/* RSB #include <u.h>
+#include <libc.h>*/
 #include "map.h"
 
 int
@@ -17,7 +12,8 @@ Xgilbert(struct place *p, double *x, double *y)
 	if(q.nlat.s < -1) q.nlat.s = -1;
 	q.nlat.c = sqrt(1 - q.nlat.s*q.nlat.s);
 	q.wlon.l = p->wlon.l/2;
-	trig(&q.wlon);
+/* RSB	sincos(&q.wlon);*/
+        trig(&q.wlon);
 /* the dull part: present the hemisphere orthogrpahically */
 	*y = q.nlat.s;
 	*x = -q.wlon.s*q.nlat.c;

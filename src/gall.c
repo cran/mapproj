@@ -1,10 +1,5 @@
-/************************************************************
-
-Copyright (C) 1998, Lucent Technologies
-All rights reserved
-
-************************************************************/
-
+/* RSB #include <u.h>
+#include <libc.h>*/
 #include "map.h"
 
 static double scale;

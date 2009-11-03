@@ -1,10 +1,5 @@
-/************************************************************
-
-Copyright (C) 1998, Lucent Technologies
-All rights reserved
-
-************************************************************/
-
+/* RSB #include <u.h>
+#include <libc.h> */
 #include "map.h"
 
 
@@ -25,7 +20,7 @@ orthographic(void)
 int
 olimb(double *lat, double *lon, double res)
 {
-	static int first  = 1;
+	static int first  = 1; /* RSB */
 	if(first) {
 		*lat = 0;
 		*lon = -180;

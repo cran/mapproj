@@ -1,10 +1,5 @@
-/************************************************************
-
-Copyright (C) 1998, Lucent Technologies
-All rights reserved
-
-************************************************************/
-
+/* RSB #include <u.h>
+#include <libc.h>*/
 #include "map.h"
 
 #define Xaitwist Xaitpole.nlat
@@ -16,7 +11,8 @@ Xaitoff(struct place *place, double *x, double *y)
 	struct place p;
 	copyplace(place,&p);
 	p.wlon.l /= 2.;
-	trig(&p.wlon);
+/* RSB	sincos(&p.wlon);*/
+        trig(&p.wlon);
 	norm(&p,&Xaitpole,&Xaitwist);
 	Xazequalarea(&p,x,y);
 	*x *= 2.;

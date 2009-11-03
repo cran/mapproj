@@ -1,10 +1,5 @@
-/************************************************************
-
-Copyright (C) 1998, Lucent Technologies
-All rights reserved
-
-************************************************************/
-
+/* RSB#include <u.h>
+#include <libc.h>*/
 #include "map.h"
 
 static int
@@ -19,7 +14,7 @@ Xlagrange(struct place *place, double *x, double *y)
 		p.nlat.s = -p.nlat.s;
 	}
 	Xstereographic(&p,&z1,&z2);
-	map_csqrt(-z2/2,z1/2,&w1,&w2);
+	map_csqrt(-z2/2,z1/2,&w1,&w2);/* RSB*/
 	cdiv(w1-1,w2,w1+1,w2,&t1,&t2);
 	*y = -t1;
 	*x = t2;

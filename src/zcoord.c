@@ -1,10 +1,6 @@
-/************************************************************
-
-Copyright (C) 1998, Lucent Technologies
-All rights reserved
-
-************************************************************/
-
+/* RSB #include <u.h>
+#include <libc.h>
+#include <stdio.h>*/
 #include "map.h"
 
 static double cirmod(double);
@@ -60,6 +56,7 @@ deg2rad(double theta, struct coord *coord)
 		coord->s = -1;
 		coord->c = 0;
 	} else
+/* RSB		sincos(coord);*/
 		trig(coord);
 }
 
@@ -73,13 +70,8 @@ cirmod(double theta)
 	return(theta);
 }
 
-double
-trigclamp(double x)
-{
-	return x>1? 1: x<-1? -1: x;
-}
-
 void
+/* RSB sincos(struct coord *coord)*/
 trig(struct coord *coord)
 {
 	coord->s = sin(coord->l);
@@ -113,26 +105,32 @@ norm(struct place *gg, struct place *pp, struct coord *tw)
 	} else {
 		if(p->wlon.l != 0) {
 			g->wlon.l -= p->wlon.l;
+/* RSB			sincos(&g->wlon);*/
 			trig(&g->wlon);
 		}
-		m.nlat.s = trigclamp(
-			p->nlat.s * g->nlat.s
-			+ p->nlat.c * g->nlat.c * g->wlon.c);
+		m.nlat.s = p->nlat.s * g->nlat.s
+			+ p->nlat.c * g->nlat.c * g->wlon.c;
 		m.nlat.c = sqrt(1. - m.nlat.s * m.nlat.s);
 		m.nlat.l = atan2(m.nlat.s, m.nlat.c);
 		m.wlon.s = g->nlat.c * g->wlon.s;
-		m.wlon.c = trigclamp(
-			p->nlat.c * g->nlat.s
-			- p->nlat.s * g->nlat.c * g->wlon.c);
+		m.wlon.c = p->nlat.c * g->nlat.s
+			- p->nlat.s * g->nlat.c * g->wlon.c;
 		m.wlon.l = atan2(m.wlon.s, - m.wlon.c)
 			- tw->l;
 		*g = m;
 	}
+/* RSB	sincos(&g->wlon);*/
 	trig(&g->wlon);
 	if(g->wlon.l>PI)
 		g->wlon.l -= 2*PI;
 	else if(g->wlon.l<-PI)
 		g->wlon.l += 2*PI;
+}
+
+double
+tan(double x)
+{
+	return(sin(x)/cos(x));
 }
 
 void

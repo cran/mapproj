@@ -1,10 +1,5 @@
-/************************************************************
-
-Copyright (C) 1998, Lucent Technologies
-All rights reserved
-
-************************************************************/
-
+/* RSB #include <u.h>
+#include <libc.h>*/
 #include "map.h"
 
 static double v3,u2,u3,a,b; /*v=view,p=obj,u=unit.y*/

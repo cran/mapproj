@@ -1,24 +1,17 @@
-/************************************************************
-
-Copyright (C) 1998, Lucent Technologies
-All rights reserved
-
-************************************************************/
-
+/* RSB #include <u.h>
+#include <libc.h>*/
 #include "map.h"
 
-static struct coord center;
+struct coord center;
 
 static int
 Xelliptic(struct place *place, double *x, double *y)
 {
 	double r1,r2;
-	r1 = acos(trigclamp(
-		place->nlat.c*(place->wlon.c*center.c
-		- place->wlon.s*center.s)));
-	r2 = acos(trigclamp(
-		place->nlat.c*(place->wlon.c*center.c
-		+ place->wlon.s*center.s)));
+	r1 = acos(place->nlat.c*(place->wlon.c*center.c
+		- place->wlon.s*center.s));
+	r2 = acos(place->nlat.c*(place->wlon.c*center.c
+		+ place->wlon.s*center.s));
 	*x = -(r1*r1 - r2*r2)/(4*center.l);
 	*y = (r1*r1+r2*r2)/2 - (center.l*center.l+*x**x);
 	if(*y < 0)

@@ -1,10 +1,5 @@
-/************************************************************
-
-Copyright (C) 1998, Lucent Technologies
-All rights reserved
-
-************************************************************/
-
+/* RSB #include <u.h>
+#include <libc.h>*/
 #include "map.h"
 
 #define BIG 1.e15
@@ -12,8 +7,7 @@ All rights reserved
 
 static double hcut[3] ;
 static double kr[3] = { .5, -1., .5 };
-static double ki0[3] = { -1., 0., 1. };
-static double ki[3];   /*ki0*sqrt(3)/2*/
+static double ki[3] = { -1., 0., 1. }; 	/*to multiply by sqrt(3)/2*/
 static double cr[3];
 static double ci[3];
 static struct place hem;
@@ -37,31 +31,31 @@ static int
 Xhex(struct place *place, double *x, double *y)
 {
 	int ns;
-	int i;
+	register int i;/* RSB */
 	double zr,zi;
 	double sr,si,tr,ti,ur,ui,vr,vi,yr,yi;
 	struct place p;
 	copyplace(place,&p);
-	ns = (place->nlat.l >= 0);
+	ns = place->nlat.l >= 0;
 	if(!ns) {
 		p.nlat.l = -p.nlat.l;
 		p.nlat.s = -p.nlat.s;
 	}
 	if(p.nlat.l<HFUZZ) {
-	  for(i=0;i<3;i++) {
-	    if(fabs(reduce(p.wlon.l-hcut[i]))<HFUZZ) {
-	      if(i==2) {
-		*x = 2*cr[0] - cr[1];
-		*y = 0;
-	      } else {
-		*x = cr[1];
-		*y = 2*ci[2*i];
-	      }
-	      return(1);
-	    }
-	  }
-	  p.nlat.l = HFUZZ;
-	  trig(&p.nlat);
+		for(i=0;i<3;i++)
+			if(fabs(reduce(p.wlon.l-hcut[i]))<HFUZZ) {
+				if(i==2) {
+					*x = 2*cr[0] - cr[1];
+					*y = 0;
+				} else {
+					*x = cr[1];
+					*y = 2*ci[2*i];
+				}
+				return(1);
+			}
+		p.nlat.l = HFUZZ;
+/* RSB		sincos(&p.nlat);*/
+                trig(&p.nlat);
 	}
 	norm(&p,&hem,&twist);
 	Xstereographic(&p,&zr,&zi);
@@ -70,6 +64,7 @@ Xhex(struct place *place, double *x, double *y)
 	cdiv(1-zr,-zi,1+zr,zi,&sr,&si);
 	csq(sr,si,&tr,&ti);
 	ccubrt(1+3*tr,3*ti,&ur,&ui);
+/* RSB  csqrt(ur-1,ui,&vr,&vi);*/
 	map_csqrt(ur-1,ui,&vr,&vi);
 	cdiv(rootroot3+vr,vi,rootroot3-vr,-vi,&yr,&yi);
 	yr /= rootk;
@@ -84,9 +79,9 @@ Xhex(struct place *place, double *x, double *y)
 }
 
 proj
-map_hex(void)
+map_hex(void)/* RSB */
 {
-	int i;
+	register int i;/* RSB */
 	double t;
 	double root3;
 	double c,d;
@@ -107,7 +102,7 @@ map_hex(void)
 	latlon(0.,0.,&p);
 	Xhex(&p,&d,&t);
 	for(i=0;i<3;i++) {
-		ki[i] = ki0[i]*root3/2;
+		ki[i] *= root3/2;
 		cr[i] = c + (c-d)*kr[i];
 		ci[i] = (c-d)*ki[i];
 	}

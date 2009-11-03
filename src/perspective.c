@@ -1,10 +1,5 @@
-/************************************************************
-
-Copyright (C) 1998, Lucent Technologies
-All rights reserved
-
-************************************************************/
-
+/* RSB #include <u.h>
+#include <libc.h>*/
 #include "map.h"
 
 #define ORTHRAD 1000
@@ -14,27 +9,27 @@ static int
 Xperspective(struct place *place, double *x, double *y)
 {
 	double r;
-	if(viewpt<=1+FUZZ && fabs(place->nlat.s)<=viewpt+.01)
+	if(viewpt<=1+FUZZ && fabs(place->nlat.s<=viewpt+.01))
 		return(-1);
 	r = place->nlat.c*(viewpt - 1.)/(viewpt - place->nlat.s);
 	*x = - r*place->wlon.s;
 	*y = - r*place->wlon.c;
 	if(r>4.)
 		return(-1);
-	if((fabs(viewpt)>1 && place->nlat.s<1/viewpt) ||
-	   (fabs(viewpt)<=1 && place->nlat.s<viewpt))
+	if(fabs(viewpt)>1 && place->nlat.s<1/viewpt ||
+	   fabs(viewpt)<=1 && place->nlat.s<viewpt)
 			return 0;
 	return(1);
 }
 
 proj
-map_perspective(double radius)
+map_perspective(double radius) /* RSB */
 {
 	viewpt = radius;
 	if(viewpt >= ORTHRAD)
 		return(Xorthographic);
 	if(fabs(viewpt-1.)<.0001)
-	  return(0);
+		return(0);
 	return(Xperspective);
 }
 
@@ -68,7 +63,7 @@ gnomonic(void)
 int
 plimb(double *lat, double *lon, double res)
 {
-	static int first = 1;
+	static int first = 1; /* RSB */
 	if(viewpt >= ORTHRAD)
 		return olimb(lat, lon, res);
 	if(first) {

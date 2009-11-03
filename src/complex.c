@@ -1,10 +1,5 @@
-/************************************************************
-
-Copyright (C) 1998, Lucent Technologies
-All rights reserved
-
-************************************************************/
-
+/* RSB #include <u.h>
+#include <libc.h>*/
 #include "map.h"
 
 /*complex divide, defensive against overflow from
@@ -45,8 +40,8 @@ csq(double c1, double c2, double *e1, double *e2)
 /* complex square root
  *	assumes underflow yields 0.0
  *	uses these identities:
- *	sqrt(x+-iy) = sqrt(r(cos(t)+-i*sin(t))
- *	           = sqrt(r)(cos(t/2)+-i*sin(t/2))
+ *	sqrt(x+_iy) = sqrt(r(cos(t)+_isin(t))
+ *	           = sqrt(r)(cos(t/2)+_isin(t/2))
  *	cos(t/2) = sin(t)/2sin(t/2) = sqrt((1+cos(t)/2)
  *	sin(t/2) = sin(t)/2cos(t/2) = sqrt((1-cos(t)/2)
 */
@@ -79,6 +74,7 @@ map_csqrt(double c1, double c2, double *e1, double *e2)
 		*e1 = c2/(2* *e2);
 	}
 }
+
 
 void map_cpow(double c1, double c2, double *d1, double *d2, double pwr)
 {

@@ -1,10 +1,5 @@
-/************************************************************
-
-Copyright (C) 1998, Lucent Technologies
-All rights reserved
-
-************************************************************/
-
+/* RSB #include <u.h>
+#include <libc.h>*/
 #include "map.h"
 extern void abort(void);
 
@@ -22,7 +17,7 @@ are included to make the libary self-standing.*/
 int
 picut(struct place *g, struct place *og, double *cutlon)
 {
-	g=g; og=og; cutlon=cutlon;	/* avoid warnings */
+	g; og; cutlon;
 	abort();
 	return 0;
 }
@@ -30,10 +25,18 @@ picut(struct place *g, struct place *og, double *cutlon)
 int
 ckcut(struct place *g1, struct place *g2, double lon)
 {
-	g1=g1; g2=g2; lon=lon;
+	g1; g2; lon;
 	abort();
 	return 0;
 }
+
+/* RSB double
+reduce(double x)
+{
+	x;
+	abort();
+	return 0;
+}*/
 
 /* minka: from map.c */
 double
@@ -45,3 +48,4 @@ reduce(double lon)
                 lon += 2*PI;
         return(lon);
 }
+

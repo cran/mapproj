@@ -1,14 +1,12 @@
-/************************************************************
-
-Copyright (C) 1998, Lucent Technologies
-All rights reserved
-
-************************************************************/
-
+/* Copyright (C) 2003, Lucent Technologies Inc. and others. 
+ * All Rights Reserved. */
+/* RSB #pragma	lib	"/sys/src/cmd/map/libmap/libmap.a$O"
+#pragma	src	"/sys/src/cmd/map/libmap"*/
 #include <math.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+
 
 #ifndef PI
 #define PI	3.1415926535897932384626433832795028841971693993751
@@ -37,7 +35,7 @@ struct place {
 
 typedef int (*proj)(struct place *, double *, double *);
 
-struct pindex {		/* index of known projections */
+struct pindex {	/* RSB */	/* index of known projections */
 	char *name;	/* name of projection */
 	proj (*prog)(double, double);
 			/* pointer to projection function */
@@ -65,7 +63,7 @@ proj	cylequalarea(double);
 int	Xcylindrical(struct place *, double *, double *);
 proj	cylindrical(void);
 proj	elliptic(double);
-proj    eisenlohr(void);
+proj	eisenlohr(void); /* RSB */
 proj	fisheye(double);
 proj	gall(double);
 proj	gilbert(void);
@@ -75,6 +73,7 @@ int	guycut(struct place *, struct place *, double *);
 int	Xguyou(struct place *, double *, double *);
 proj	guyou(void);
 proj	harrison(double, double);
+int	hexcut(struct place *, struct place *, double *);
 proj	map_hex(void);
 proj	homing(double);
 int	hlimb(double*, double*, double resolution);
@@ -118,8 +117,10 @@ void	invalb(double, double, double *, double *);
 
 void	cdiv(double, double, double, double, double *, double *);
 void	cmul(double, double, double, double, double *, double *);
+/* RSB void	cpow(double, double, double *, double *, double);*/
 void	map_cpow(double, double, double *, double *, double);
 void	csq(double, double, double *, double *);
+/* RSB void	csqrt(double, double, double *, double *);*/
 void	map_csqrt(double, double, double *, double *);
 void	ccubrt(double, double, double *, double *);
 double	cubrt(double);
@@ -130,7 +131,7 @@ void	csqr(double, double, double *, double *);
 void	orient(double, double, double);
 void	latlon(double, double, struct place *);
 void	deg2rad(double, struct coord *);
-double	trigclamp(double);
+/* RSB void	sincos(struct coord *);*/
 void	trig(struct coord *);
 void	normalize(struct place *);
 void	invert(struct place *);
@@ -142,15 +143,13 @@ int	picut(struct place *, struct place *, double *);
 int	ckcut(struct place *, struct place *, double);
 double	reduce(double);
 
-/* (minka)
-void	getsyms(char *);
+/* RSB void	getsyms(char *);
 int	putsym(struct place *, char *, double, int);
 void	filerror(char *s, char *f);
 void	error(char *s);
 int	doproj(struct place *, int *, int *);
 int	cpoint(int, int, int);
 int	plotpt(struct place *, int);
-int	nocut(struct place *, struct place *, double *);
-*/
+int	nocut(struct place *, struct place *, double *);*/
 
 extern int (*projection)(struct place *, double *, double *);

@@ -1,16 +1,11 @@
-/************************************************************
-
-Copyright (C) 1998, Lucent Technologies
-All rights reserved
-
-************************************************************/
-
+/* RSB #include <u.h>
+#include <libc.h>*/
 #include "map.h"
 
 static struct coord stdpar;
 static double r0;
 
-static int
+static int /* RSB */
 Xbonne(struct place *place, double *x, double *y)
 {
 	double r, alpha;

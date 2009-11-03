@@ -1,15 +1,16 @@
-/************************************************************
-
-Copyright (C) 1998, Lucent Technologies
-All rights reserved
-
-************************************************************/
-
+/* RSB #include <u.h>
+#include <libc.h>*/
 #include "map.h"
 
 static struct coord p0;		/* standard parallel */
 
 int first;
+
+static double
+trigclamp(double x)
+{
+	return x>1? 1: x<-1? -1: x;
+}
 
 static struct coord az;		/* azimuth of p0 seen from place */
 static struct coord rad;	/* angular dist from place to p0 */
@@ -19,11 +20,13 @@ azimuth(struct place *place)
 {
 	if(place->nlat.c < FUZZ) {
 		az.l = PI/2 + place->nlat.l - place->wlon.l;
-		trig(&az);
+/* RSB		sincos(&az);*/
+                trig(&az);
 		rad.l = fabs(place->nlat.l - p0.l);
 		if(rad.l > PI)
 			rad.l = 2*PI - rad.l;
-		trig(&rad);
+/* RSB		sincos(&rad);*/
+                trig(&rad);
 		return 1;
 	}
 	rad.c = trigclamp(p0.s*place->nlat.s +	/* law of cosines */

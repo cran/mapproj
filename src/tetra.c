@@ -1,10 +1,5 @@
-/************************************************************
-
-Copyright (C) 1998, Lucent Technologies
-All rights reserved
-
-************************************************************/
-
+/* RSB #include <u.h>
+#include <libc.h>*/
 #include "map.h"
 
 /*
@@ -40,10 +35,10 @@ All rights reserved
 
 static struct place tpole[4];	/* point of tangency of tetrahedron face*/
 static double tpoleinit[4][2] = {
-  { 1.,	0. },
-  { 1.,	180.},
-  { -1., 90.},
-  { -1., -90.}
+	1.,	0.,
+	1.,	180.,
+	-1.,	90.,
+	-1.,	-90.
 };
 static struct tproj {
 	double tlat,tlon;	/* center of stereo projection*/
@@ -73,14 +68,12 @@ static struct tproj {
  /*32*/	{-90.,	0.,	0.,	90.},
  /*33*/ {0.} 
 }};
-static double tx0[4] = {	/*where to move facet after final rotation*/
+static double tx[4] = {	/*where to move facet after final rotation*/
 	0.,	0.,	-1.,	1.	/*-1,1 to be sqrt(3)*/
 };
-static double ty0[4] = {
+static double ty[4] = {
 	0.,	2.,	-1.,	-1.
 };
-static double tx[4];
-static double ty[4];
 static double root3;
 static double rt3inv;
 static double two_rt3;
@@ -178,7 +171,8 @@ tetracut(struct place *g, struct place *og, double *cutlon)
 proj
 tetra(void)
 {
-	int i,j;
+	register int i; /* RSB */
+	int j;
 	register struct place *tp;
 	register struct tproj *tpp;
 	double t;
@@ -193,8 +187,8 @@ tetra(void)
 	fpir *= 2;
 	fpii *= 2;
 	for(i=0;i<4;i++) {
-		tx[i] = tx0[i]*f0r*root3;
-		ty[i] = ty0[i]*f0r;
+		tx[i] *= f0r*root3;
+		ty[i] *= f0r;
 		tp = &tpole[i];
 		t = tp->nlat.s = tpoleinit[i][0]/root3;
 		tp->nlat.c = sqrt(1 - t*t);
