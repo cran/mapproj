@@ -80,7 +80,7 @@ map.grid <- function(lim,nx=9,ny=9,labels=TRUE,pretty=TRUE,
     s
   }
   # by default, use limits of last map
-  if(missing(lim)) lim = .map.range
+  if(missing(lim)) lim = .map.range()
   if(is.list(lim)) {
     # first argument is a map
     lim <- lim$range
