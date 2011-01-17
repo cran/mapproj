@@ -20,10 +20,7 @@ map.grid(lim,nx=9,ny=9,labels=TRUE,pretty=TRUE,cex,col,lty,font,...)
   \item{labels}{logical to indicate if grid lines should be labeled with
     longitude/latitude values.}
   \item{pretty}{If \code{TRUE}, grid lines will be placed at round numbers.}
-  \item{cex}{}
-  \item{col}{}
-  \item{lty}{}
-  \item{font}{}
+  \item{cex,col,lty,font}{passed to arguments to \code{par}}
   \item{...}{additional arguments passed to \code{lines} and
     \code{text}, e.g.  \code{col} to change the color of the grid and
     \code{lty} to change the line type.}
