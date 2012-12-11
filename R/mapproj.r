@@ -1,3 +1,8 @@
+".Last.projection"<-
+local({
+    val <- list(projection = "", parameters = NULL, orientation = NULL)
+    function(new) if(!missing(new)) val <<- new else val
+     })
 "mapproject"<-
 function(x, y, projection = "", parameters = NULL, orientation = NULL)
 {
@@ -21,17 +26,17 @@ function(x, y, projection = "", parameters = NULL, orientation = NULL)
       stop("orientation argument must have 3 elements")
   }
   else {
-    if(!exists(".Last.projection", envir = globalenv())) {
+    if(nchar(.Last.projection()$projection) == 0) {
       #stop("no previous projection")
       return(list(x=x,y=y))
     }
-    p <- get(".Last.projection", envir = globalenv())
+    p <- .Last.projection()
     projection <- p$projection
     if(is.null(parameters)) parameters <- p$parameters
     else if(length(parameters) != length(p$parameters))
-      stop(paste("expecting", length(p$parameters), 
+      stop(paste("expecting", length(p$parameters),
                  "parameters for", projection, "projection"))
-    
+
     if(is.null(orientation)) orientation <- p$orientation
     else if(length(orientation) != 3)
       stop("orientation argument must have 3 elements")
@@ -44,10 +49,9 @@ function(x, y, projection = "", parameters = NULL, orientation = NULL)
               error = character(1),PACKAGE="mapproj")$error
   if(error != "")
     stop(error)
-  assign(".Last.projection", list(projection = projection,
-                                  parameters = parameters,
-                                  orientation = orientation),
-         envir = globalenv())
+  .Last.projection(list(projection = projection,
+                        parameters = parameters,
+                        orientation = orientation))
   .C("doproj",
      x = as.double(x),
      y = as.double(y),
@@ -57,10 +61,12 @@ function(x, y, projection = "", parameters = NULL, orientation = NULL)
      NAOK = TRUE,PACKAGE="mapproj")[c("x", "y", "range", "error")]
 }
 
-map.grid <- function(lim,nx=9,ny=9,labels=TRUE,pretty=TRUE,
-                     cex=1,col=4,lty=2,font=2,...) {
-  # uses map.wrap from maps library
-  pretty.range <- function(lim,...) {
+map.grid <-
+function(lim, nx = 9, ny = 9, labels = TRUE, pretty = TRUE, cex = 1,
+	col = 4, lty = 2, font = 2, ...) {
+  # uses map.wrap from maps package
+  pretty.range <-
+  function(lim,...) {
     # like pretty but ensures that the range is identical:
     # range(pretty.range(x)) == range(x)
     x = pretty(lim,...)
@@ -70,7 +76,8 @@ map.grid <- function(lim,nx=9,ny=9,labels=TRUE,pretty=TRUE,
     x[1] = lim[1]; x[length(x)] = lim[2]
     x
   }
-  auto.format <- function(x) {
+  auto.format <-
+  function(x) {
     # use the minimal number of digits to make x's unique
     # similar to abbrev
     for(digits in 0:6) {

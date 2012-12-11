@@ -1,10 +1,6 @@
-# Default NAMESPACE created by R
-# Remove the previous line if you edit this file
+useDynLib("mapproj")
 
-# Export all names
-exportPattern(".")
+importFrom(maps, map.wrap)
 
-# Import all packages listed as Imports or Depends
-import(
-  maps
-)
+export(map.grid, mapproject, .Last.projection)
+

@@ -1,7 +1,11 @@
+#include <R.h>
 /* RSB #include <u.h>
 #include <libc.h>*/
 #include "map.h"
-extern void abort(void);
+
+// CRAN change 2012-12-10
+//extern void abort(void);
+#define abort() error("fatal error in mapproj")
 
 /* these routines duplicate names found in map.c.  they are
 called from routines in hex.c, guyou.c, and tetra.c, which

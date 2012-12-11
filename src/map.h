@@ -136,7 +136,7 @@ void	trig(struct coord *);
 void	normalize(struct place *);
 void	invert(struct place *);
 void	norm(struct place *, struct place *, struct coord *);
-void	printp(struct place *);
+/* void	printp(struct place *); */
 void	copyplace(struct place *, struct place *);
 
 int	picut(struct place *, struct place *, double *);

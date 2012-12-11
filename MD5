@@ -1,8 +1,7 @@
-fc4cf245c0c94aad364d87240edf3293 *DESCRIPTION
-859cb2da4fdb6e53d6068cd73b7d8471 *LICENSE
-4ddec3f818e4657a109558334bc73d21 *NAMESPACE
-1538114c9faa5fd3b5c6e40ef619af08 *R/mapproj.r
-48e63a015f77feb4f38c116ffa7c0676 *R/zzz.R
+d0f48a1f687f9787f6d8a3a50f2424dc *DESCRIPTION
+a66243f26e992c2e09d44b07c8617243 *LICENSE
+e3ba9ada0c2f29e43945a161a9dbf035 *NAMESPACE
+faae0b105fcc3aa705ecf17bbc7097a7 *R/mapproj.r
 859cb2da4fdb6e53d6068cd73b7d8471 *inst/LICENSE
 924f5f94fc61488c8cd34478deb3510d *man/map.grid.Rd
 dc388acbb8da028fee91562612b882d6 *man/mapproject.Rd
@@ -17,7 +16,7 @@ ca58fbdeacc7b7fea3e49715d440dae8 *src/bonne.c
 16c4a1feb91f826879571eab500b7de6 *src/complex.c
 f29465a5f2724f08e4e74df9f7da3956 *src/conic.c
 915fc9297f76b043270bba14ae9b677e *src/cubrt.c
-f11e9d6cb764e152f20e0940e543eb8d *src/cuts.c
+e6951853f5a5dcafc7cc57dbf01277f1 *src/cuts.c
 dcc266276712c1c206163a2135adfcaf *src/cylequalarea.c
 4aeb64bc71c26c294cb1c98ec2cfd422 *src/cylindrical.c
 08c8c981c0b3583a218286c653253ab2 *src/eisenlohr.c
@@ -33,8 +32,8 @@ abdfb7e8c7a3d223af25745ea39283d3 *src/homing.c
 3883049518bbc60de9af2394649203ca *src/lagrange.c
 d5cb43e2764ac81e2524041f2d4af2cb *src/lambert.c
 270fec0e947e395e1ac74950d4cee39c *src/laue.c
-473a757b55000f8e906fbada02f99251 *src/lune.c
-9131ebc4c593c5c95cb10b6e2044a412 *src/map.h
+6073a029d500a0b7c69c2bc6c7eed9bd *src/lune.c
+fa9e51aea2a9c9f2a4b8489e2e4ad052 *src/map.h
 38950e1951a6f2e28dc46fdcbe3ec473 *src/mapproject.c
 c9cb7e5d306dea81a01e7aa5de4d18df *src/mercator.c
 1aa54f763ad4839773e6ea12ce926fbc *src/mollweide.c
@@ -48,4 +47,4 @@ a2b7e53517cbd01e2beafc89f91bc774 *src/simpleconic.c
 638ff48404e1c396b3ed0069d405558f *src/tetra.c
 a3099bccdbab035c3ec6fa12e790eba2 *src/trapezoidal.c
 abeb12aaff9af6ad10cb0c9b10b51c59 *src/twocirc.c
-2eb8846069a2b0e3ba5de7ecf21c9f86 *src/zcoord.c
+9e3be978e17cacfebd95156beaef3149 *src/zcoord.c

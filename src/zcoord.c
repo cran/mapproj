@@ -133,12 +133,12 @@ tan(double x)
 	return(sin(x)/cos(x));
 }
 
-void
+/* void
 printp(struct place *g)
 {
 printf("%.3f %.3f %.3f %.3f %.3f %.3f\n",
 g->nlat.l,g->nlat.s,g->nlat.c,g->wlon.l,g->wlon.s,g->wlon.c);
-}
+}*/
 
 void
 copyplace(struct place *g1, struct place *g2)
