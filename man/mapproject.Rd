@@ -87,8 +87,7 @@ the standard form appropriate to the overlay, but presenting
 information from the underlying globe.
 
 
-In the descriptions that follow (adapted from the McIlroy
-reference), each projection is shown as a
+In the descriptions that follow each projection is shown as a
 function call; if it requires parameters, these are shown as
 arguments to the function.
 The descriptions are grouped into families.
@@ -206,9 +205,6 @@ not make sense for tilted orientations.
 }
 } % end details
 \references{
-  Tom Minka, An overview of map projections.
-  \url{http://www.stat.cmu.edu/~minka/courses/36-315/handout/handout17.pdf}
-  
   Richard A. Becker, and Allan R. Wilks,
   "Maps in S",
   \emph{AT\&T Bell Laboratories Statistics Research Report, 1991.}
@@ -218,13 +214,6 @@ not make sense for tilted orientations.
   Documentation from the
   \emph{Tenth Edition UNIX Manual, Volume 1,}
   Saunders College Publishing, 1990.
-
-  M. D. McIlroy,  Source code for maps and map projections, included in 
-the Plan 9 distribution at: \url{http://plan9.bell-labs.com/plan9/download.html}
-(sys/src/cmd/map/), downloaded November 1, 2009 by Roger Bivand.
-  %\url{http://plan9.bell-labs.com/plan9/download.html}
-  %\url{http://www.cs.dartmouth.edu/~doug/source.html}
-  %\url{http://cm.bell-labs.com/cs/who/doug/map.tar.gz}
 }
 \examples{
 library(maps)

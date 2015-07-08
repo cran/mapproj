@@ -1,9 +1,9 @@
-fcc9147715007d11f8bbd761f9e58fbd *DESCRIPTION
+64d198fa0b45193170c6c593801b30da *DESCRIPTION
 a66243f26e992c2e09d44b07c8617243 *LICENSE.note
-e3ba9ada0c2f29e43945a161a9dbf035 *NAMESPACE
-faae0b105fcc3aa705ecf17bbc7097a7 *R/mapproj.r
-924f5f94fc61488c8cd34478deb3510d *man/map.grid.Rd
-dc388acbb8da028fee91562612b882d6 *man/mapproject.Rd
+9ef1d82ebae14331d0c16e6db465e422 *NAMESPACE
+02ba9c7c2134d825bfc288ac3ea83b56 *R/mapproj.r
+774a5e45c7620829cb08e6b3664d2e02 *man/map.grid.Rd
+1fcc23d01eee11a5bc21a4283ca5a410 *man/mapproject.Rd
 1e220fbd9ec36780a036ddc43a17ef08 *src/Makevars.debug
 963422f3661a1419150ea314b5b3a4c5 *src/aitoff.c
 4cad728b0ed706ee2002f3d977647d27 *src/albers.c
@@ -29,7 +29,7 @@ f5b531d076dc5c1cba56cdafdbd8d90a *src/gilbert.c
 b130df782ad891ab0e13af5c6f5e573e *src/hex.c
 abdfb7e8c7a3d223af25745ea39283d3 *src/homing.c
 3883049518bbc60de9af2394649203ca *src/lagrange.c
-d5cb43e2764ac81e2524041f2d4af2cb *src/lambert.c
+68a3f00baa9ede46c13de50351b3aec5 *src/lambert.c
 270fec0e947e395e1ac74950d4cee39c *src/laue.c
 6073a029d500a0b7c69c2bc6c7eed9bd *src/lune.c
 fa9e51aea2a9c9f2a4b8489e2e4ad052 *src/map.h
