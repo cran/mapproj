@@ -3,7 +3,7 @@
 #include <libc.h>*/
 #include "map.h"
 // CRAN change 2012-12-10
-#define abort() error("fatal error in mapproj")
+#define abort() Rf_error("fatal error in mapproj")
 
 
 int Xstereographic(struct place *place, double *x, double *y);

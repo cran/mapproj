@@ -41,24 +41,24 @@ function(x, y, projection = "", parameters = NULL, orientation = NULL)
     else if(length(orientation) != 3)
       stop("orientation argument must have 3 elements")
   }
-  error <- .C("setproj",
+  error <- .C(C_setproj,
               as.character(projection),
               as.double(parameters),
               as.integer(length(parameters)),
               as.double(orientation),
-              error = character(1), PACKAGE = "mapproj")$error
+              error = character(1))$error
   if(error != "")
     stop(error)
   .Last.projection(list(projection = projection,
                         parameters = parameters,
                         orientation = orientation))
-  .C("doproj",
+  .C(C_doproj,
      x = as.double(x),
      y = as.double(y),
      as.integer(length(x)),
      range = double(4),
      error = integer(1),
-     NAOK = TRUE, PACKAGE = "mapproj")[c("x", "y", "range", "error")]
+     NAOK = TRUE)[c("x", "y", "range", "error")]
 }
 
 map.grid <-
@@ -104,7 +104,7 @@ function(lim, nx = 9, ny = 9, labels = TRUE, pretty = TRUE, cex = 1,
   }
   p = mapproject(expand.grid(x = c(seq(lim[1], lim[2], len = 100), NA),
   	y = y))
-  p = map.wrap(p)
+  p = maps::map.wrap(p)
   lines(p,
         col = col, lty = lty, ...)
   lines(mapproject(expand.grid(y = c(seq(lim[3], lim[4],

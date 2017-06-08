@@ -1,9 +1,9 @@
-811a774f6cf9db1499b741977f06ca9c *DESCRIPTION
+e36b49884407fef7fa5d78e69f25653f *DESCRIPTION
 a66243f26e992c2e09d44b07c8617243 *LICENSE.note
-9ef1d82ebae14331d0c16e6db465e422 *NAMESPACE
-02ba9c7c2134d825bfc288ac3ea83b56 *R/mapproj.r
+056aeb9f5996f07d32b7b3c52fe6af0b *NAMESPACE
+a256c056315fa29e63e1ff128a9dec99 *R/mapproj.r
 774a5e45c7620829cb08e6b3664d2e02 *man/map.grid.Rd
-1fcc23d01eee11a5bc21a4283ca5a410 *man/mapproject.Rd
+8902c56b50fecbcaf3d029be421d1f62 *man/mapproject.Rd
 1e220fbd9ec36780a036ddc43a17ef08 *src/Makevars.debug
 963422f3661a1419150ea314b5b3a4c5 *src/aitoff.c
 4cad728b0ed706ee2002f3d977647d27 *src/albers.c
@@ -15,7 +15,7 @@ ca58fbdeacc7b7fea3e49715d440dae8 *src/bonne.c
 16c4a1feb91f826879571eab500b7de6 *src/complex.c
 f29465a5f2724f08e4e74df9f7da3956 *src/conic.c
 915fc9297f76b043270bba14ae9b677e *src/cubrt.c
-e6951853f5a5dcafc7cc57dbf01277f1 *src/cuts.c
+332b51b98830973f4b744f1ab4540120 *src/cuts.c
 dcc266276712c1c206163a2135adfcaf *src/cylequalarea.c
 4aeb64bc71c26c294cb1c98ec2cfd422 *src/cylindrical.c
 08c8c981c0b3583a218286c653253ab2 *src/eisenlohr.c
@@ -28,10 +28,11 @@ f5b531d076dc5c1cba56cdafdbd8d90a *src/gilbert.c
 1d97c7dc429901e3ad46c92d23f54d72 *src/harrison.c
 b130df782ad891ab0e13af5c6f5e573e *src/hex.c
 abdfb7e8c7a3d223af25745ea39283d3 *src/homing.c
+8106768ea4bdf544cba91021ca34388c *src/init.c
 3883049518bbc60de9af2394649203ca *src/lagrange.c
 68a3f00baa9ede46c13de50351b3aec5 *src/lambert.c
 270fec0e947e395e1ac74950d4cee39c *src/laue.c
-6073a029d500a0b7c69c2bc6c7eed9bd *src/lune.c
+d1097e5df5f8e8d4f2586a66e8bce3ab *src/lune.c
 fa9e51aea2a9c9f2a4b8489e2e4ad052 *src/map.h
 38950e1951a6f2e28dc46fdcbe3ec473 *src/mapproject.c
 c9cb7e5d306dea81a01e7aa5de4d18df *src/mercator.c
