@@ -1,4 +1,4 @@
-e36b49884407fef7fa5d78e69f25653f *DESCRIPTION
+305cd7943426434361e035cdcb1535b9 *DESCRIPTION
 a66243f26e992c2e09d44b07c8617243 *LICENSE.note
 056aeb9f5996f07d32b7b3c52fe6af0b *NAMESPACE
 a256c056315fa29e63e1ff128a9dec99 *R/mapproj.r
@@ -6,7 +6,7 @@ a256c056315fa29e63e1ff128a9dec99 *R/mapproj.r
 8902c56b50fecbcaf3d029be421d1f62 *man/mapproject.Rd
 1e220fbd9ec36780a036ddc43a17ef08 *src/Makevars.debug
 963422f3661a1419150ea314b5b3a4c5 *src/aitoff.c
-4cad728b0ed706ee2002f3d977647d27 *src/albers.c
+820bbcc1eace6808d0d13e215e54ab64 *src/albers.c
 1789fbc55ae7967b57f329ab72b1abf4 *src/azequalarea.c
 b48479d7ab2d76195ee994ae6a088f07 *src/azequidist.c
 9d3d4f7691130561925a077ce7574b24 *src/bicentric.c
@@ -39,7 +39,7 @@ c9cb7e5d306dea81a01e7aa5de4d18df *src/mercator.c
 1aa54f763ad4839773e6ea12ce926fbc *src/mollweide.c
 ebf89710c52f2558a03dd08afaa13b1c *src/newyorker.c
 cdfa10318e2136f419986069a0f5d5f4 *src/orthographic.c
-6120ddf84594040daf2459b020acbe54 *src/perspective.c
+05c66f6d7f96b5e7e8edc7b1adda8bf5 *src/perspective.c
 0e0ec545cb2dddcab20c826d402345ab *src/polyconic.c
 7506438efb2210f480446aacba052164 *src/rectangular.c
 a2b7e53517cbd01e2beafc89f91bc774 *src/simpleconic.c
