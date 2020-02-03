@@ -18,6 +18,8 @@ the calling routines are not advertised as part of the library,
 and the library duplicates should never get loaded, however they
 are included to make the libary self-standing.*/
 
+/* A Deckmyn 2020-01-31
+
 int
 picut(struct place *g, struct place *og, double *cutlon)
 {
@@ -33,6 +35,7 @@ ckcut(struct place *g1, struct place *g2, double lon)
 	abort();
 	return 0;
 }
+*/
 
 /* RSB double
 reduce(double x)

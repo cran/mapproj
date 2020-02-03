@@ -109,7 +109,7 @@ map_hex(void)/* RSB */
 	deg2rad(0.,&twist);
 	return(Xhex);
 }
-
+/* ADeckmyn
 int
 hexcut(struct place *g, struct place *og, double *cutlon)
 {
@@ -122,3 +122,4 @@ hexcut(struct place *g, struct place *og, double *cutlon)
 	}
 	return(1);
 }
+*/

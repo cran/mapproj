@@ -69,11 +69,11 @@ proj	gall(double);
 proj	gilbert(void);
 proj	globular(void);
 proj	gnomonic(void);
-int	guycut(struct place *, struct place *, double *);
+/* AD int	guycut(struct place *, struct place *, double *); */
 int	Xguyou(struct place *, double *, double *);
 proj	guyou(void);
 proj	harrison(double, double);
-int	hexcut(struct place *, struct place *, double *);
+/* AD int	hexcut(struct place *, struct place *, double *); */
 proj	map_hex(void);
 proj	homing(double);
 int	hlimb(double*, double*, double resolution);
@@ -105,7 +105,7 @@ proj	square(void);
 int	Xstereographic(struct place *, double *, double *);
 proj	stereographic(void);
 int	Xtetra(struct place *, double *, double *);
-int	tetracut(struct place *, struct place *, double *);
+/* AD int	tetracut(struct place *, struct place *, double *); */
 proj	tetra(void);
 proj	trapezoidal(double, double);
 proj	vandergrinten(void);
@@ -139,8 +139,8 @@ void	norm(struct place *, struct place *, struct coord *);
 /* void	printp(struct place *); */
 void	copyplace(struct place *, struct place *);
 
-int	picut(struct place *, struct place *, double *);
-int	ckcut(struct place *, struct place *, double);
+/* AD int	picut(struct place *, struct place *, double *); */
+/* AD int	ckcut(struct place *, struct place *, double); */
 double	reduce(double);
 
 /* RSB void	getsyms(char *);

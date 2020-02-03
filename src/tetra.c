@@ -153,7 +153,7 @@ Xtetra(struct place *place, double *x, double *y)
 	     tr*tpp->postrot.s + ty[i];
 	return(1);
 }
-
+/* ADeckmyn
 int
 tetracut(struct place *g, struct place *og, double *cutlon)
 {
@@ -167,7 +167,7 @@ tetracut(struct place *g, struct place *og, double *cutlon)
 		return(1);
 	return(0);
 }
-
+*/
 proj
 tetra(void)
 {

@@ -54,7 +54,7 @@ guyou(void)
 	deg2rad(0.,&gytwist);
 	return(Xguyou);
 }
-
+/* ADeckmyn
 int
 guycut(struct place *g, struct place *og, double *cutlon)
 {
@@ -67,7 +67,7 @@ guycut(struct place *g, struct place *og, double *cutlon)
 		return(ckcut(g,og,0.));
 	return(1);
 }
-
+*/
 static int
 Xsquare(struct place *place, double *x, double *y)
 {
