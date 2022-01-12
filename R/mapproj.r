@@ -3,6 +3,7 @@ local({
     val <- list(projection = "", parameters = NULL, orientation = NULL)
     function(new) if(!missing(new)) val <<- new else val
      })
+
 "mapproject"<-
 function(x, y, projection = "", parameters = NULL, orientation = NULL)
 {
@@ -15,30 +16,30 @@ function(x, y, projection = "", parameters = NULL, orientation = NULL)
     y <- x$y
     x <- x$x
   }
-  if(length(x) != length(y))
+  if (length(x) != length(y))
     stop("lengths of x and y must match")
-  if(is.null(r))
+  if (is.null(r))
     r <- range(x[!is.na(x)])
   new.projection <- (projection != "")
-  if(new.projection) {
-    if(is.null(orientation)) orientation = c(90, 0, mean(r))
-    else if(length(orientation) != 3)
+  if (new.projection) {
+    if (is.null(orientation)) orientation = c(90, 0, mean(r))
+    else if (length(orientation) != 3)
       stop("orientation argument must have 3 elements")
   }
   else {
-    if(nchar(.Last.projection()$projection) == 0) {
+    if (nchar(.Last.projection()$projection) == 0) {
       #stop("no previous projection")
       return(list(x = x, y = y))
     }
     p <- .Last.projection()
     projection <- p$projection
-    if(is.null(parameters)) parameters <- p$parameters
-    else if(length(parameters) != length(p$parameters))
+    if (is.null(parameters)) parameters <- p$parameters
+    else if (length(parameters) != length(p$parameters))
       stop(paste("expecting", length(p$parameters),
                  "parameters for", projection, "projection"))
 
-    if(is.null(orientation)) orientation <- p$orientation
-    else if(length(orientation) != 3)
+    if (is.null(orientation)) orientation <- p$orientation
+    else if (length(orientation) != 3)
       stop("orientation argument must have 3 elements")
   }
   error <- .C(C_setproj,
@@ -47,7 +48,7 @@ function(x, y, projection = "", parameters = NULL, orientation = NULL)
               as.integer(length(parameters)),
               as.double(orientation),
               error = character(1))$error
-  if(error != "")
+  if (error != "")
     stop(error)
   .Last.projection(list(projection = projection,
                         parameters = parameters,
@@ -69,47 +70,47 @@ function(lim, nx = 9, ny = 9, labels = TRUE, pretty = TRUE, cex = 1,
   function(lim, ...) {
     # like pretty but ensures that the range is identical:
     # range(pretty.range(x)) == range(x)
-    x = pretty(lim, ...)
-    if(abs(x[1]-lim[1]) > abs(x[2]-lim[1])) x = x[-1]
-    n = length(x)
-    if(abs(x[n]-lim[2]) > abs(x[n-1]-lim[2])) x = x[-n]
-    x[1] = lim[1]; x[length(x)] = lim[2]
+    x <- pretty(lim, ...)
+    if (abs(x[1]-lim[1]) > abs(x[2]-lim[1])) x <- x[-1]
+    n <- length(x)
+    if (abs(x[n]-lim[2]) > abs(x[n-1]-lim[2])) x <- x[-n]
+    x[1] <- lim[1]; x[length(x)] <- lim[2]
     x
   }
   auto.format <-
   function(x) {
     # use the minimal number of digits to make x's unique
     # similar to abbrev
-    for(digits in 0:6) {
-      s = formatC(x, digits = digits, format = "f")
-      if(all(duplicated(s) == duplicated(x))) break
+    for (digits in 0:6) {
+      s <- formatC(x, digits = digits, format = "f")
+      if (all(duplicated(s) == duplicated(x))) break
     }
     s
   }
   # by default, use limits of last map
-  if(missing(lim)) lim = .map.range()
-  if(is.list(lim)) {
+  if (missing(lim)) lim = .map.range()
+  if (is.list(lim)) {
     # first argument is a map
     lim <- lim$range
   }
-  if(lim[2]-lim[1] > 360) {
+  if (lim[2]-lim[1] > 360) {
     lim[2] <- lim[1] + 360
   }
-  if(pretty) {
+  if (pretty) {
     x <- pretty.range(lim[1:2], n = nx)
     y <- pretty.range(lim[3:4], n = ny)
   } else {
-    x <- seq(lim[1], lim[2], len = nx)
-    y <- seq(lim[3], lim[4], len = ny)
+    x <- seq(lim[1], lim[2], length.out = nx)
+    y <- seq(lim[3], lim[4], length.out = ny)
   }
-  p = mapproject(expand.grid(x = c(seq(lim[1], lim[2], len = 100), NA),
+  p <- mapproject(expand.grid(x = c(seq(lim[1], lim[2], length.out = 100), NA),
   	y = y))
-  p = maps::map.wrap(p)
+  p <- maps::map.wrap(p)
   lines(p,
         col = col, lty = lty, ...)
   lines(mapproject(expand.grid(y = c(seq(lim[3], lim[4],
- 	len = 100), NA), x = x)), col = col, lty = lty, ...)
-  if(labels) {
+ 	length.out = 100), NA), x = x)), col = col, lty = lty, ...)
+  if (labels) {
     tx <- x[2]
     xinc <- median(diff(x))
     ty <- y[length(y)-2]

@@ -135,13 +135,13 @@ void doproj(lon, lat, n, range, error)
   double x, y;
 
   *error = 0;
-  range[XMIN] = range[YMIN] = SINGLE_XMAX;
-  range[XMAX] = range[YMAX] = -SINGLE_XMAX;
+  range[XMIN] = range[YMIN] = FLT_MAX;
+  range[XMAX] = range[YMAX] = -FLT_MAX;
   for(i = 0; i < *n; i++, lon++, lat++) {
     if(ISNA(*lon) || ISNA(*lat))
       continue;
     ok = 1 == project(*lon, *lat, &x, &y);
-    if(!ok || ABS(x) > SINGLE_XMAX || ABS(y) > SINGLE_XMAX) {
+    if(!ok || ABS(x) > FLT_MAX || ABS(y) > FLT_MAX) {
       *error = 1;
       *lon = NA_REAL;
       *lat = NA_REAL;

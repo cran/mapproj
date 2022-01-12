@@ -208,8 +208,8 @@ not make sense for tilted orientations.
   Richard A. Becker, and Allan R. Wilks,
   "Maps in S",
   \emph{AT\&T Bell Laboratories Statistics Research Report, 1991.}
-  \url{http://www.research.att.com/areas/stat/doc/93.2.ps}
-  
+  \url{ https://web.archive.org/web/20070824013345/http://www.research.att.com/areas/stat/doc/93.2.ps}
+
   M. D. McIlroy,
   Documentation from the
   \emph{Tenth Edition UNIX Manual, Volume 1,}

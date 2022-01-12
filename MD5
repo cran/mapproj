@@ -1,9 +1,9 @@
-da14c28aba85f319bf8acda4a84be8c9 *DESCRIPTION
+5a84d4adcac11e7d0ca4877a4fc48f05 *DESCRIPTION
 a66243f26e992c2e09d44b07c8617243 *LICENSE.note
 056aeb9f5996f07d32b7b3c52fe6af0b *NAMESPACE
-a256c056315fa29e63e1ff128a9dec99 *R/mapproj.r
+412368c9cb39b1e4afde6ba59a568784 *R/mapproj.r
 774a5e45c7620829cb08e6b3664d2e02 *man/map.grid.Rd
-1fcc23d01eee11a5bc21a4283ca5a410 *man/mapproject.Rd
+69b8d89c345652d60ffcdf355c317545 *man/mapproject.Rd
 1e220fbd9ec36780a036ddc43a17ef08 *src/Makevars.debug
 963422f3661a1419150ea314b5b3a4c5 *src/aitoff.c
 820bbcc1eace6808d0d13e215e54ab64 *src/albers.c
@@ -34,7 +34,7 @@ abdfb7e8c7a3d223af25745ea39283d3 *src/homing.c
 270fec0e947e395e1ac74950d4cee39c *src/laue.c
 d1097e5df5f8e8d4f2586a66e8bce3ab *src/lune.c
 43884f7426e7089a34ff7a46d6c9b19a *src/map.h
-38950e1951a6f2e28dc46fdcbe3ec473 *src/mapproject.c
+cb01919230736df812f057a23c376a38 *src/mapproject.c
 c9cb7e5d306dea81a01e7aa5de4d18df *src/mercator.c
 1aa54f763ad4839773e6ea12ce926fbc *src/mollweide.c
 ebf89710c52f2558a03dd08afaa13b1c *src/newyorker.c
