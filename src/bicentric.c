@@ -15,7 +15,7 @@ Xbicentric(struct place *place, double *x, double *y)
 }
 
 proj
-bicentric(double l)
+bicentric(double l, double dummy)
 {
 	l = fabs(l);
 	if(l>89)

@@ -18,7 +18,7 @@ proj
 trapezoidal(double par0, double par1)
 {
 	if(fabs(fabs(par0)-fabs(par1))<.1)
-		return rectangular(par0);
+		return rectangular(par0, UNUSED);
 	deg2rad(par0,&stdpar0);
 	deg2rad(par1,&stdpar1);
 	if(fabs(par1-par0) < .1)

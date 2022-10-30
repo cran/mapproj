@@ -57,7 +57,7 @@ Xmecca(struct place *place, double *x, double *y)
 }
 
 proj
-mecca(double par)
+mecca(double par, double dummy)
 {
 	first = 1;
 	if(fabs(par)>80.)
@@ -77,7 +77,7 @@ Xhoming(struct place *place, double *x, double *y)
 }
 
 proj
-homing(double par)
+homing(double par, double dummy)
 {
 	first = 1;
 	if(fabs(par)>80.)

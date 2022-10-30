@@ -55,7 +55,7 @@ Xglobular(struct place *place, double *x, double *y)
 }	
 
 proj
-globular(void)
+globular(double dummy1, double dummy2)
 {
 	return Xglobular;
 }
@@ -74,7 +74,7 @@ Xvandergrinten(struct place *place, double *x, double *y)
 }
 
 proj
-vandergrinten(void)
+vandergrinten(double dummy1, double dummy2)
 {
 	return Xvandergrinten;
 }

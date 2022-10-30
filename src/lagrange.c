@@ -24,7 +24,7 @@ Xlagrange(struct place *place, double *x, double *y)
 }
 
 proj
-lagrange(void)
+lagrange(double dummy1, double dummy2)
 {
 	return(Xlagrange);
 }

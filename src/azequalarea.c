@@ -13,7 +13,7 @@ Xazequalarea(struct place *place, double *x, double *y)
 }
 
 proj
-azequalarea(void)
+azequalarea(double dummy1, double dummy2)
 {
 	return(Xazequalarea);
 }

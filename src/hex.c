@@ -79,7 +79,7 @@ Xhex(struct place *place, double *x, double *y)
 }
 
 proj
-map_hex(void)/* RSB */
+map_hex(double dummy1, double dummy2)/* RSB */
 {
 	register int i;/* RSB */
 	double t;

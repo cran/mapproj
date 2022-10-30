@@ -19,7 +19,7 @@ Xfisheye(struct place *place, double *x, double *y)
 }
 
 proj
-fisheye(double par)
+fisheye(double par, double dummy)
 {
 	n = par;
 	return n<.1? 0: Xfisheye;

@@ -50,65 +50,65 @@ struct pindex {	/* RSB */	/* index of known projections */
 };
 
 
-proj	aitoff(void);
+proj	aitoff(double, double);
 proj	albers(double, double);
 int	Xazequalarea(struct place *, double *, double *);
-proj	azequalarea(void);
+proj	azequalarea(double, double);
 int	Xazequidistant(struct place *, double *, double *);
-proj	azequidistant(void);
-proj	bicentric(double);
-proj	bonne(double);
-proj	conic(double);
-proj	cylequalarea(double);
+proj	azequidistant(double, double);
+proj	bicentric(double, double);
+proj	bonne(double, double);
+proj	conic(double, double);
+proj	cylequalarea(double, double);
 int	Xcylindrical(struct place *, double *, double *);
-proj	cylindrical(void);
-proj	elliptic(double);
-proj	eisenlohr(void); /* RSB */
-proj	fisheye(double);
-proj	gall(double);
-proj	gilbert(void);
-proj	globular(void);
-proj	gnomonic(void);
+proj	cylindrical(double, double);
+proj	elliptic(double, double);
+proj	eisenlohr(double, double); /* RSB */
+proj	fisheye(double, double);
+proj	gall(double, double);
+proj	gilbert(double, double);
+proj	globular(double, double);
+proj	gnomonic(double, double);
 /* AD int	guycut(struct place *, struct place *, double *); */
 int	Xguyou(struct place *, double *, double *);
-proj	guyou(void);
+proj	guyou(double,double);
 proj	harrison(double, double);
 /* AD int	hexcut(struct place *, struct place *, double *); */
-proj	map_hex(void);
-proj	homing(double);
+proj	map_hex(double, double);
+proj	homing(double, double);
 int	hlimb(double*, double*, double resolution);
-proj	lagrange(void);
+proj	lagrange(double, double);
 proj	lambert(double, double);
-proj	laue(void);
+proj	laue(double, double);
 proj	lune(double, double);
 proj	loxodromic(double);	/* not in library */
-proj	mecca(double);
+proj	mecca(double, double);
 int	mlimb(double*, double*, double resolution);
-proj	mercator(void);
-proj	mollweide(void);
-proj	newyorker(double);
+proj	mercator(double, double);
+proj	mollweide(double, double);
+proj	newyorker(double, double);
 proj	ortelius(double, double);	/* not in library */
 int	Xorthographic(struct place *place, double *x, double *y);
-proj	orthographic(void);
+proj	orthographic(double, double);
 int	olimb(double*, double*, double);
-proj	map_perspective(double);
+proj	map_perspective(double, double);
 int	plimb(double*, double*, double resolution);
 int	Xpolyconic(struct place *, double *, double *);
-proj	polyconic(void);
-proj	rectangular(double);
+proj	polyconic(double, double);
+proj	rectangular(double, double);
 proj	simpleconic(double, double);
 int	Xsinusoidal(struct place *, double *, double *);
-proj	sinusoidal(void);
+proj	sinusoidal(double, double);
 proj	sp_albers(double, double);
-proj	sp_mercator(void);
-proj	square(void);
+proj	sp_mercator(double, double);
+proj	square(double, double);
 int	Xstereographic(struct place *, double *, double *);
-proj	stereographic(void);
+proj	stereographic(double, double);
 int	Xtetra(struct place *, double *, double *);
 /* AD int	tetracut(struct place *, struct place *, double *); */
-proj	tetra(void);
+proj	tetra(double, double);
 proj	trapezoidal(double, double);
-proj	vandergrinten(void);
+proj	vandergrinten(double, double);
 proj	wreath(double, double);	/* not in library */
 
 void	findxy(double, double *, double *);

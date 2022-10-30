@@ -13,11 +13,11 @@
 #define YMIN		2
 #define YMAX		3
 
-static int (*projfun)();
+static int (*projfun)(struct place*, double*, double*);
 
 struct index {
 	char *name;
-	proj (*prog)();
+	proj (*prog)(double, double);
 	int npar;
 } mapindex[] = {
 	{"mercator", mercator, 0},
@@ -64,10 +64,7 @@ struct index {
 	{NULL,NULL,0},
 };
 
-void setproj(name, par, n, o, error)
-     char **name, **error;
-     double par[], o[];
-     int *n;
+void setproj(char **name, double par[], int *n, double o[], char **error)
 {
   struct index *i, *theproj = 0;
   static char errbuf[200];
@@ -93,8 +90,9 @@ void setproj(name, par, n, o, error)
 	 strcmp(i->name, "elliptic") == 0)
 	par[0] = -par[0];
       switch(*n) {
-      case 0: projfun = (i->prog)(); break;
-      case 1: projfun = (i->prog)(par[0]); break;
+      /* AD: all functions now take 2 arguments */
+      case 0: projfun = (i->prog)(UNUSED, UNUSED); break;
+      case 1: projfun = (i->prog)(par[0], UNUSED); break;
       case 2: projfun = (i->prog)(par[0], par[1]); break;
       }
       theproj = i;
@@ -108,9 +106,7 @@ void setproj(name, par, n, o, error)
   orient(o[0], -o[1], -o[2]);
 }
 
-static int project(lon, lat, x, y)
-     double lon, lat;
-     double *x, *y;
+static int project(double lon, double lat, double *x, double *y)
 {
   struct place p;
 
@@ -127,9 +123,7 @@ static int project(lon, lat, x, y)
   return((*projfun)(&p, x, y));
 }
 
-void doproj(lon, lat, n, range, error)
-     double lon[], lat[], range[];
-     int *n, *error;
+void doproj(double lon[], double lat[], int *n, double range[], int *error)
 {
   int i, ok;
   double x, y;

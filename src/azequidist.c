@@ -13,7 +13,7 @@ Xazequidistant(struct place *place, double *x, double *y)
 }
 
 proj
-azequidistant(void)
+azequidistant(double dummy1, double dummy2)
 {
 	return(Xazequidistant);
 }

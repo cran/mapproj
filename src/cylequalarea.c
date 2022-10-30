@@ -13,7 +13,7 @@ Xcylequalarea(struct place *place, double *x, double *y)
 }
 
 proj
-cylequalarea(double par)
+cylequalarea(double par, double dummy)
 {
 	struct coord stdp0;
 	if(par > 89.0)

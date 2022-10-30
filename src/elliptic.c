@@ -23,7 +23,7 @@ Xelliptic(struct place *place, double *x, double *y)
 }
 
 proj
-elliptic(double l)
+elliptic(double l, double dummy)
 {
 	l = fabs(l);
 	if(l>89)

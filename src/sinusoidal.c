@@ -11,7 +11,7 @@ Xsinusoidal(struct place *place, double *x, double *y)
 }
 
 proj
-sinusoidal(void)
+sinusoidal(double dummy1, double dummy2)
 {
 	return(Xsinusoidal);
 }

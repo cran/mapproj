@@ -22,7 +22,7 @@ Xpolyconic(struct place *place, double *x, double *y)
 }
 
 proj
-polyconic(void)
+polyconic(double dummy1, double dummy2)
 {
 	return(Xpolyconic);
 }

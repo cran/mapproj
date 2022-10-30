@@ -13,7 +13,7 @@ Xrectangular(struct place *place, double *x, double *y)
 }
 
 proj
-rectangular(double par)
+rectangular(double par, double dummy)
 {
 	scale = cos(par*RAD);
 	if(scale<.1)

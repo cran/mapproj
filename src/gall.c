@@ -17,7 +17,7 @@ Xgall(struct place *place, double *x, double *y)
 }
 
 proj
-gall(double par)
+gall(double par, double dummy)
 {
 	double coshalf;
 	if(fabs(par)>80)

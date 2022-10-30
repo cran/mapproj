@@ -18,7 +18,7 @@ Xlaue(struct place *place, double *x, double *y)
 }
 
 proj
-laue(void)
+laue(double dummy1, double dummy2)
 {
 	return(Xlaue);
 }

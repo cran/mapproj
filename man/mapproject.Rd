@@ -200,14 +200,14 @@ is the true bearing of Mecca.
 Maps based on the spheroid. Of geodetic quality, these projections do
 not make sense for tilted orientations. 
 \describe{
-\item{sp\_mercator()}{Mercator on the spheroid.}
-\item{sp\_albers(lat0,lat1)}{Albers on the spheroid.}
+\item{sp_mercator()}{Mercator on the spheroid.}
+\item{sp_albers(lat0,lat1)}{Albers on the spheroid.}
 }
 } % end details
 \references{
   Richard A. Becker, and Allan R. Wilks,
   "Maps in S",
-  \emph{AT\&T Bell Laboratories Statistics Research Report, 1991.}
+  \emph{AT&T Bell Laboratories Statistics Research Report, 1991.}
   \url{ https://web.archive.org/web/20070824013345/http://www.research.att.com/areas/stat/doc/93.2.ps}
 
   M. D. McIlroy,

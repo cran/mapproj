@@ -169,7 +169,7 @@ tetracut(struct place *g, struct place *og, double *cutlon)
 }
 */
 proj
-tetra(void)
+tetra(double dummy1, double dummy2)
 {
 	register int i; /* RSB */
 	int j;

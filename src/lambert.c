@@ -40,10 +40,10 @@ lambert(double par0, double par1)
 	deg2rad(par0, &stdp0);
 	deg2rad(par1, &stdp1);
 	if(fabs(par1+par0)<.1) 
-		return(mercator());
+		return(mercator(UNUSED, UNUSED));
 	if(fabs(par1)>89.5) {
 		if(par0>89.5)
-			return(map_perspective(-1.));
+			return(map_perspective(-1., UNUSED));
 		else if(par0<-89.5)
 			return 0;	/* S pole stereographic */
 		else

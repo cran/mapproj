@@ -12,7 +12,7 @@ Xorthographic(struct place *place, double *x, double *y)
 }
 
 proj
-orthographic(void)
+orthographic(double dummy1, double dummy2)
 {
 	return(Xorthographic);
 }

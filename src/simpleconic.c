@@ -22,7 +22,7 @@ simpleconic(double par0, double par1)
 	deg2rad(par0,&lat0);
 	deg2rad(par1,&lat1);
 	if(fabs(lat0.l+lat1.l)<.01)
-		return rectangular(par0);
+		return rectangular(par0, UNUSED);
 	if(fabs(lat0.l-lat1.l)<.01) {
 		a = lat0.s/lat0.l;
 		r0 = lat0.c/lat0.s + lat0.l;

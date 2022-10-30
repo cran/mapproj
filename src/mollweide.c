@@ -19,7 +19,7 @@ Xmollweide(struct place *place, double *x, double *y)
 }
 
 proj
-mollweide(void)
+mollweide(double dummy1, double dummy2)
 {
 	return(Xmollweide);
 }

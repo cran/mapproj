@@ -26,7 +26,7 @@ Xbonne(struct place *place, double *x, double *y)
 }
 
 proj
-bonne(double par)
+bonne(double par, double dummy)
 {
 	if(fabs(par*RAD) < .01)
 		return(Xsinusoidal);

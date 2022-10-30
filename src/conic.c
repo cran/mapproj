@@ -18,7 +18,7 @@ Xconic(struct place *place, double *x, double *y)
 }
 
 proj
-conic(double par)
+conic(double par, double dummy)
 {
 	if(fabs(par) <.1)
 		return(Xcylindrical);

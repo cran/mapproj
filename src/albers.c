@@ -50,11 +50,11 @@ static proj albinit(double lat1, double lat2, double e2)
 	}
 	if(lat2-lat1 < 1) {
 		if(lat1 > 89)
-			return(azequalarea());
+			return(azequalarea(UNUSED, UNUSED));
 		return(0);
 	}
 	if(fabs(lat2+lat1) < 1)
-		return(cylequalarea(lat1));
+		return(cylequalarea(lat1, UNUSED));
 	d2 = e2;
 	den = num(1.);
 	deg2rad(lat1,&plat1);

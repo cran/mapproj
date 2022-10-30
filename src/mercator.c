@@ -13,7 +13,7 @@ Xmercator(struct place *place, double *x, double *y)
 }
 
 proj
-mercator(void)
+mercator(double dummy1, double dummy2)
 {
 	return(Xmercator);
 }
@@ -30,7 +30,7 @@ Xspmercator(struct place *place, double *x, double *y)
 }
 
 proj
-sp_mercator(void)
+sp_mercator(double dummy1, double dummy2)
 {
 	return(Xspmercator);
 }

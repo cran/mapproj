@@ -21,7 +21,7 @@ Xnewyorker(struct place *place, double *x, double *y)
 }
 
 proj
-newyorker(double a0)
+newyorker(double a0, double dummy)
 {
 	a = a0*RAD;
 	return(Xnewyorker);

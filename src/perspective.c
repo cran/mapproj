@@ -23,7 +23,7 @@ Xperspective(struct place *place, double *x, double *y)
 }
 
 proj
-map_perspective(double radius) /* RSB */
+map_perspective(double radius, double dummy) /* RSB */
 {
 	viewpt = radius;
 	if(viewpt >= ORTHRAD)
@@ -47,14 +47,14 @@ Xstereographic(struct place *place, double *x, double *y)
 }
 
 proj
-stereographic(void)
+stereographic(double dummy1, double dummy2)
 {
 	viewpt = -1.;
 	return(Xperspective);
 }
 
 proj
-gnomonic(void)
+gnomonic(double dummy1, double dummy2)
 {
 	viewpt = 0.;
 	return(Xperspective);

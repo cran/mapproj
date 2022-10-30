@@ -16,7 +16,7 @@ Xeisenlohr(struct place *p, double *x, double *y)
 	return 1;
 }
 proj
-eisenlohr()
+eisenlohr(double dummy1, double dummy2)
 {
 	return Xeisenlohr;
 }

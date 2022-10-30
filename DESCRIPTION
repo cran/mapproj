@@ -1,7 +1,7 @@
 Package: mapproj
 Title: Map Projections
-Version: 1.2.8
-Date: 2022-01-12
+Version: 1.2.9
+Date: 2022-10-24
 Author: Doug McIlroy.  Packaged for R by Ray Brownrigg and Thomas P
         Minka, transition to Plan 9 codebase by Roger Bivand.
 Description: Converts latitude/longitude into projected coordinates.
@@ -10,6 +10,6 @@ Imports: stats, graphics
 License: Lucent Public License
 Maintainer: Alex Deckmyn <alex.deckmyn@meteo.be>
 NeedsCompilation: yes
+Packaged: 2022-10-29 22:04:51 UTC; alex
 Repository: CRAN
-Packaged: 2022-01-12 10:00:03 UTC; alex
-Date/Publication: 2022-01-12 11:32:43 UTC
+Date/Publication: 2022-10-30 23:27:42 UTC

@@ -21,7 +21,7 @@ Xgilbert(struct place *p, double *x, double *y)
 }
 
 proj
-gilbert(void)
+gilbert(double dummy1, double dummy2)
 {
 	return(Xgilbert);
 }

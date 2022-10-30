@@ -13,7 +13,7 @@ Xcylindrical(struct place *place, double *x, double *y)
 }
 
 proj
-cylindrical(void)
+cylindrical(double dummy1, double dummy2)
 {
 	return(Xcylindrical);
 }

@@ -20,7 +20,7 @@ Xaitoff(struct place *place, double *x, double *y)
 }
 
 proj
-aitoff(void)
+aitoff(double dummy1, double dummy2)
 {
 	latlon(0.,0.,&Xaitpole);
 	return(Xaitoff);

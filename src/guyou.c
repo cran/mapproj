@@ -42,7 +42,7 @@ Xguyou(struct place *place, double *x, double *y)
 }
 
 proj
-guyou(void)
+guyou(double dummy1, double dummy2)
 {
 	double junk;
 	gykc = 1/(3+2*sqrt(2.));
@@ -94,8 +94,8 @@ Xsquare(struct place *place, double *x, double *y)
 }
 
 proj
-square(void)
+square(double dummy1, double dummy2)
 {
-	guyou();
+	guyou(UNUSED, UNUSED);
 	return(Xsquare);
 }
