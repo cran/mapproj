@@ -64,44 +64,37 @@ struct index {
 	{NULL,NULL,0},
 };
 
-void setproj(char **name, double par[], int *n, double o[], char **error)
+void setproj(char **name, double par[], int *n, double o[])
 {
   struct index *i, *theproj = 0;
-  static char errbuf[200];
 
-  *error = "";
   if(**name == 0) {
-    *error = "Null projection specified";
-    return;
+    error("Null projection specified");
   }
   for(i = mapindex; i->name != 0; i++) {
     if(strncmp(*name, i->name, strlen(*name)) == 0) {
       if(theproj) {
-	sprintf(errbuf, "Ambiguous projection specified: %s or %s?", theproj->name, i->name);
-	*error = errbuf;
-	return;
+	error("Ambiguous projection specified: %s or %s?",
+              theproj->name, i->name);
       }
       if(*n != i->npar) {
-	sprintf(errbuf, "%s projection requires %d parameter%s", i->name, i->npar, i->npar>1?"s":"");
-	*error = errbuf;
-	return;
+        error("%s projection requires %d parameter%s",
+              i->name, i->npar, i->npar==1?"":"s");
       }
       if(strcmp(i->name, "bicentric") == 0 ||
 	 strcmp(i->name, "elliptic") == 0)
 	par[0] = -par[0];
       switch(*n) {
-      /* AD: all functions now take 2 arguments */
-      case 0: projfun = (i->prog)(UNUSED, UNUSED); break;
-      case 1: projfun = (i->prog)(par[0], UNUSED); break;
-      case 2: projfun = (i->prog)(par[0], par[1]); break;
+        /* AD: all functions now take 2 arguments */
+        case 0: projfun = (i->prog)(UNUSED, UNUSED); break;
+        case 1: projfun = (i->prog)(par[0], UNUSED); break;
+        case 2: projfun = (i->prog)(par[0], par[1]); break;
       }
       theproj = i;
     }
   }
   if(theproj == 0) {
-    sprintf(errbuf, "Unknown projection: %s", *name);
-    *error = errbuf;
-    return;
+    error("Unknown projection: %s", *name);
   }
   orient(o[0], -o[1], -o[2]);
 }
@@ -123,12 +116,12 @@ static int project(double lon, double lat, double *x, double *y)
   return((*projfun)(&p, x, y));
 }
 
-void doproj(double lon[], double lat[], int *n, double range[], int *error)
+void doproj(double lon[], double lat[], int *n, double range[], int *err)
 {
   int i, ok;
   double x, y;
 
-  *error = 0;
+  *err = 0;
   range[XMIN] = range[YMIN] = FLT_MAX;
   range[XMAX] = range[YMAX] = -FLT_MAX;
   for(i = 0; i < *n; i++, lon++, lat++) {
@@ -136,7 +129,7 @@ void doproj(double lon[], double lat[], int *n, double range[], int *error)
       continue;
     ok = 1 == project(*lon, *lat, &x, &y);
     if(!ok || ABS(x) > FLT_MAX || ABS(y) > FLT_MAX) {
-      *error = 1;
+      *err = 1;
       *lon = NA_REAL;
       *lat = NA_REAL;
     } else {

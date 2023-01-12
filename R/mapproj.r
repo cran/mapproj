@@ -42,14 +42,13 @@ function(x, y, projection = "", parameters = NULL, orientation = NULL)
     else if (length(orientation) != 3)
       stop("orientation argument must have 3 elements")
   }
-  error <- .C(C_setproj,
-              as.character(projection),
-              as.double(parameters),
-              as.integer(length(parameters)),
-              as.double(orientation),
-              error = character(1))$error
-  if (error != "")
-    stop(error)
+
+  .C(C_setproj,
+     as.character(projection),
+     as.double(parameters),
+     as.integer(length(parameters)),
+     as.double(orientation))
+
   .Last.projection(list(projection = projection,
                         parameters = parameters,
                         orientation = orientation))
